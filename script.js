@@ -114,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         player.playVideo();
                         isPlaying = true;
                         musicBtn.innerHTML = '🔊 Stop Music';
+                        document.querySelector('.bunting-container')?.classList.add('music-beat');
+                        document.querySelector('.cute-cake-container')?.classList.add('music-beat');
                     }
                     
                     // Speak Happy Birthday
@@ -177,10 +179,14 @@ document.addEventListener('DOMContentLoaded', () => {
             player.pauseVideo();
             isPlaying = false;
             musicBtn.innerHTML = '🔇 Play Music';
+            document.querySelector('.bunting-container')?.classList.remove('music-beat');
+            document.querySelector('.cute-cake-container')?.classList.remove('music-beat');
         } else {
             player.playVideo();
             isPlaying = true;
             musicBtn.innerHTML = '🔊 Stop Music';
+            document.querySelector('.bunting-container')?.classList.add('music-beat');
+            document.querySelector('.cute-cake-container')?.classList.add('music-beat');
         }
     });
 
@@ -227,17 +233,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createBalloons() {
         const container = document.getElementById('balloons-container');
-        // Realistic pink shades matching desktop image
-        const colors = ['#ff8da1', '#ff9eb1', '#ff7d95', '#f06292', '#ec407a'];
+        // Bright colorful balloons
+        const colors = ['#ff4757', '#1e90ff', '#2ed573', '#ffa502', '#9c88ff', '#ff6b81', '#00d2d3'];
         
-        for (let i = 0; i < 25; i++) {
+        for (let i = 0; i < 12; i++) {
             const balloon = document.createElement('div');
             balloon.classList.add('balloon');
             balloon.style.left = `${Math.random() * 95}vw`; 
             
             const baseColor = colors[Math.random() * colors.length | 0];
-            // Apply radial gradient for realistic 3D look
-            balloon.style.background = `radial-gradient(circle at 30% 30%, #ffffff 0%, ${baseColor} 40%, #c2185b 100%)`;
+            // Apply radial gradient for realistic 3D look with the chosen color
+            balloon.style.backgroundColor = baseColor;
+            balloon.style.background = `radial-gradient(circle at 30% 30%, #ffffff 0%, ${baseColor} 40%, rgba(0,0,0,0.3) 100%)`;
             
             const scale = 0.8 + Math.random() * 0.5;
             balloon.style.transform = `scale(${scale})`;
