@@ -225,6 +225,39 @@ button:hover {
     100% { text-shadow: 5px 5px 0px #1e90ff; transform: translateY(0) rotate(-5deg); }    /* Blue */
 }
 
+/* Heartfelt Wish Styling */
+.human-wish-container {
+    position: relative;
+    z-index: 10;
+    max-width: 600px;
+    width: 90%;
+    margin: 20px auto 0;
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    animation: fadeInWish 2s ease-in-out;
+}
+
+.human-wish {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    margin: 0;
+}
+
+@keyframes fadeInWish {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 768px) {
     .elegant-name {
         font-size: 3rem;
