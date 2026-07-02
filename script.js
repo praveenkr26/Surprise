@@ -129,13 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const reloadBtn = document.getElementById('reload-btn');
-    if(reloadBtn) {
-        reloadBtn.addEventListener('click', () => {
-            window.location.reload();
-        });
-    }
-
     shayariBtn.addEventListener('click', () => {
         const name = nameInput.value.trim();
         const shayaris = [
@@ -192,14 +185,26 @@ document.addEventListener('DOMContentLoaded', () => {
             balloon.style.animationDuration = `${6 + Math.random() * 6}s`;
             balloon.style.animationDelay = `${Math.random() * 3}s`;
             
-            balloon.addEventListener('click', function() {
+            balloon.addEventListener('click', function(e) {
                 // Play pop sound
                 popSound.currentTime = 0;
-                popSound.play().catch(e => console.log("Audio play blocked", e));
+                popSound.play().catch(err => console.log(err));
                 
-                // Animate and remove
-                this.classList.add('popped');
-                setTimeout(() => this.remove(), 200);
+                // Blast confetti at click position
+                const rect = this.getBoundingClientRect();
+                const x = (rect.left + rect.width / 2) / window.innerWidth;
+                const y = (rect.top + rect.height / 2) / window.innerHeight;
+                
+                confetti({
+                    particleCount: 30,
+                    spread: 50,
+                    origin: { x: x, y: y },
+                    colors: [this.style.backgroundColor, '#ffffff'],
+                    zIndex: 100
+                });
+                
+                // Remove balloon instantly
+                this.remove();
             });
             
             container.appendChild(balloon);
