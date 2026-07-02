@@ -77,7 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
     enterBtn.addEventListener('click', () => {
         const name = nameInput.value.trim();
         if (name) {
-            bdayName.textContent = name;
+            bdayName.innerHTML = '';
+            name.split('').forEach((char, i) => {
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.className = 'anim-letter';
+                if (char === ' ') span.innerHTML = '&nbsp;';
+                // Staggered animation delay for each letter
+                span.style.animationDelay = `${i * 0.15}s`;
+                bdayName.appendChild(span);
+            });
             inputScreen.classList.remove('active');
             
             const countdownScreen = document.getElementById('countdown-screen');

@@ -129,19 +129,50 @@ button:hover {
 
 /* Celebration Screen Elements */
 .elegant-name {
-    font-size: 5rem;
-    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
     color: #ffffff;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.6), -1px -1px 0 rgba(0,0,0,0.3);
+    /* 3D Paper shadow */
+    text-shadow: 
+        1px 1px 0px #e0e0e0,
+        2px 2px 0px #d0d0d0,
+        3px 3px 0px #c0c0c0,
+        4px 4px 0px #b0b0b0,
+        5px 5px 0px #a0a0a0,
+        6px 6px 15px rgba(0,0,0,0.5),
+        10px 10px 30px rgba(0,0,0,0.4);
     text-align: center;
     position: relative;
     z-index: 10;
     margin-top: 15vh;
+    letter-spacing: 2px;
+}
+
+#bday-name {
+    display: block;
+    margin-top: 1rem;
+}
+
+.anim-letter {
+    display: inline-block;
+    animation: colorBounce 2.5s infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes colorBounce {
+    0% { color: #ff3366; transform: translateY(0) scale(1) rotate(-4deg); }
+    20% { color: #33ccff; transform: translateY(-15px) scale(1.1) rotate(4deg); }
+    40% { color: #ffcc00; transform: translateY(0) scale(1) rotate(-4deg); }
+    60% { color: #00ff66; transform: translateY(-15px) scale(1.1) rotate(4deg); }
+    80% { color: #cc33ff; transform: translateY(0) scale(1) rotate(-4deg); }
+    100% { color: #ff3366; transform: translateY(0) scale(1) rotate(-4deg); }
 }
 
 @media (max-width: 768px) {
     .elegant-name {
-        font-size: 3.5rem;
+        font-size: 3rem;
         margin-top: 10vh;
     }
 }
