@@ -100,9 +100,9 @@ button:hover {
 
 /* Celebration Screen Backgrounds */
 #celebration-screen {
-    background: linear-gradient(135deg, #1e092b 0%, #572051 50%, #1e092b 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 12s ease infinite;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -186,16 +186,14 @@ button:hover {
 
 /* Celebration Screen Elements */
 .elegant-name {
-    font-size: 5rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-size: 5.5rem;
+    font-family: 'Pacifico', cursive;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.5); /* Simple, clean drop shadow (No Neon) */
     text-align: center;
     position: relative;
     z-index: 10;
-    margin-top: 5vh;
+    margin-top: 3vh;
 }
 
 #bday-name {
