@@ -111,9 +111,66 @@ button:hover {
     100% { background-position: 0% 50%; }
 }
 
-.hb-text {
-    display: inline;
-    color: #ffd700; /* Premium gold color */
+/* Bunting Banner Styles */
+.bunting-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+    z-index: 10;
+    position: relative;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.4));
+}
+
+.bunting-string {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border-top: 2px solid rgba(255,255,255,0.4);
+    padding-top: 2px;
+    border-radius: 50% / 15px;
+}
+
+.flag {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 15px;
+    width: 45px;
+    height: 65px;
+    background-color: var(--c);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    margin: 0 4px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 80%, 0% 100%);
+    transform-origin: top center;
+    animation: swing 2s ease-in-out infinite alternate;
+}
+
+.flag:nth-child(even) {
+    animation-delay: 0.3s;
+    animation-duration: 2.2s;
+}
+.flag:nth-child(3n) {
+    animation-delay: 0.6s;
+    animation-duration: 1.8s;
+}
+
+@keyframes swing {
+    0% { transform: rotate(-8deg); }
+    100% { transform: rotate(8deg); }
+}
+
+@media (max-width: 768px) {
+    .flag {
+        width: 35px;
+        height: 50px;
+        font-size: 1.5rem;
+        padding-top: 10px;
+        margin: 0 2px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -146,7 +203,7 @@ button:hover {
     text-align: center;
     position: relative;
     z-index: 10;
-    margin-top: 15vh;
+    margin-top: 5vh;
     letter-spacing: 2px;
 }
 
@@ -173,7 +230,7 @@ button:hover {
 @media (max-width: 768px) {
     .elegant-name {
         font-size: 3rem;
-        margin-top: 10vh;
+        margin-top: 3vh;
     }
 }
 
