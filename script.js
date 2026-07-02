@@ -28,9 +28,7 @@ function onYouTubeIframeAPIReady() {
         videoId: '6rbNqft5U50', 
         playerVars: {
             'autoplay': 0,
-            'controls': 0,
-            'loop': 1,
-            'playlist': '6rbNqft5U50' // Required for looping
+            'controls': 0
         },
         events: {
             'onReady': onPlayerReady
@@ -40,6 +38,18 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     console.log("YouTube Player is ready.");
+    
+    // Custom loop to remove the silent end part
+    setInterval(() => {
+        if (isPlaying && player && typeof player.getCurrentTime === 'function' && typeof player.getDuration === 'function') {
+            let duration = player.getDuration();
+            let currentTime = player.getCurrentTime();
+            // Cut off the last 2 seconds of the video to avoid silence
+            if (duration > 0 && currentTime >= (duration - 2)) {
+                player.seekTo(0);
+            }
+        }
+    }, 200);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -69,26 +79,45 @@ document.addEventListener('DOMContentLoaded', () => {
         if (name) {
             bdayName.textContent = name;
             inputScreen.classList.remove('active');
-            celebrationScreen.classList.add('active');
             
-            // Start Music in low volume
-            if (player && typeof player.playVideo === 'function') {
-                player.setVolume(20);
-                player.playVideo();
-                isPlaying = true;
-                musicBtn.innerHTML = '🔊 Stop Music';
-            }
+            const countdownScreen = document.getElementById('countdown-screen');
+            const countdownNumber = document.getElementById('countdown-number');
+            countdownScreen.classList.add('active');
             
-            // Speak Happy Birthday
-            speakText(`Happy birthday ${name}`, () => {
-                // Restore volume
-                if (player && typeof player.setVolume === 'function') {
-                    player.setVolume(100);
+            let count = 3;
+            countdownNumber.textContent = count;
+            speakText(count.toString());
+            
+            const countInterval = setInterval(() => {
+                count--;
+                if (count > 0) {
+                    countdownNumber.textContent = count;
+                    speakText(count.toString());
+                } else {
+                    clearInterval(countInterval);
+                    countdownScreen.classList.remove('active');
+                    celebrationScreen.classList.add('active');
+                    
+                    // Start Music in low volume
+                    if (player && typeof player.playVideo === 'function') {
+                        player.setVolume(20);
+                        player.playVideo();
+                        isPlaying = true;
+                        musicBtn.innerHTML = '🔊 Stop Music';
+                    }
+                    
+                    // Speak Happy Birthday
+                    speakText(`Happy birthday ${name}`, () => {
+                        // Restore volume
+                        if (player && typeof player.setVolume === 'function') {
+                            player.setVolume(100);
+                        }
+                    });
+                    
+                    createBalloons();
+                    startConfetti();
                 }
-            });
-            
-            createBalloons();
-            startConfetti();
+            }, 1000);
         } else {
             // Shake animation for empty input
             nameInput.style.transform = 'translateX(-10px)';
