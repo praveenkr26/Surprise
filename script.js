@@ -23,8 +23,8 @@ function speakText(text, onEndCallback) {
 // Initialize YouTube Player
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('yt-player', {
-        height: '0',
-        width: '0',
+        height: '1',
+        width: '1',
         videoId: '6rbNqft5U50', 
         playerVars: {
             'autoplay': 0,
