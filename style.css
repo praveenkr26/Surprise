@@ -187,9 +187,11 @@ button:hover {
 /* Celebration Screen Elements */
 .elegant-name {
     font-size: 5rem;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Just a soft flat shadow for readability */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     text-align: center;
     position: relative;
     z-index: 10;
@@ -208,12 +210,17 @@ button:hover {
 }
 
 @keyframes colorfulBounce {
-    0% { color: #ff6b81; transform: translateY(0); }
-    20% { color: #48dbfb; transform: translateY(-10px); }
-    40% { color: #feca57; transform: translateY(0); }
-    60% { color: #1dd1a1; transform: translateY(-10px); }
-    80% { color: #ff9f43; transform: translateY(0); }
-    100% { color: #ff6b81; transform: translateY(0); }
+    0% { color: #ff0000; transform: translateY(0); }
+    10% { color: #ff7f00; transform: translateY(-10px); }
+    20% { color: #ffff00; transform: translateY(0); }
+    30% { color: #7fff00; transform: translateY(-10px); }
+    40% { color: #00ff00; transform: translateY(0); }
+    50% { color: #00ff7f; transform: translateY(-10px); }
+    60% { color: #00ffff; transform: translateY(0); }
+    70% { color: #0000ff; transform: translateY(-10px); }
+    80% { color: #8b00ff; transform: translateY(0); }
+    90% { color: #ff00ff; transform: translateY(-10px); }
+    100% { color: #ff0000; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
