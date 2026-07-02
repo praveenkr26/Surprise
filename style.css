@@ -116,146 +116,22 @@ button:hover {
 }
 
 /* Celebration Screen Elements */
-.glow-text {
-    font-size: 4rem;
-    color: #fff;
-    text-shadow: 
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 20px #ff1493,
-        0 0 40px #ff1493,
-        0 0 80px #ff1493,
-        0 0 100px #ff1493;
-    margin-bottom: 1rem;
-    z-index: 2;
+.elegant-name {
+    font-size: 5rem;
+    font-family: 'Pacifico', cursive;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6), -1px -1px 0 rgba(0,0,0,0.3);
     text-align: center;
-    animation: neon-pulsate 1s infinite alternate;
+    position: relative;
+    z-index: 10;
+    margin-top: 15vh;
 }
 
-@keyframes neon-pulsate {
-    0% {
-        text-shadow: 
-            0 0 5px #fff,
-            0 0 10px #fff,
-            0 0 20px #ff1493,
-            0 0 40px #ff1493,
-            0 0 80px #ff1493;
+@media (max-width: 768px) {
+    .elegant-name {
+        font-size: 3.5rem;
+        margin-top: 10vh;
     }
-    100% {
-        text-shadow: 
-            0 0 5px #fff,
-            0 0 10px #fff,
-            0 0 20px #ff1493,
-            0 0 40px #ff1493,
-            0 0 80px #ff1493,
-            0 0 120px #ff1493;
-    }
-}
-
-/* CAKE CSS */
-.cake-container {
-    position: relative;
-    margin-top: 30px;
-    cursor: pointer;
-    z-index: 2;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.cake-container:hover {
-    transform: scale(1.05);
-}
-
-.cake {
-    position: relative;
-    width: 250px;
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.tier {
-    position: relative;
-    transition: clip-path 0.5s ease-in-out;
-}
-
-.tier-bottom {
-    width: 200px;
-    height: 70px;
-    background: #FFB6C1;
-    border-radius: 10px 10px 0 0;
-    border-bottom: 8px solid #d87093;
-    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
-}
-.tier-middle {
-    width: 150px;
-    height: 55px;
-    background: #FFC0CB;
-    border-radius: 10px 10px 0 0;
-    border-bottom: 6px solid #ff69b4;
-    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
-}
-.tier-top {
-    width: 100px;
-    height: 45px;
-    background: #FFE4E1;
-    border-radius: 10px 10px 0 0;
-    border-bottom: 5px solid #ff1493;
-    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
-}
-.tier::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 15px;
-    background: #FFF0F5; 
-    border-radius: 10px 10px 50% 50%;
-}
-
-.candles {
-    display: flex;
-    justify-content: space-around;
-    width: 70px;
-    position: absolute;
-    top: -25px; 
-}
-
-.candle {
-    width: 8px;
-    height: 35px;
-    background: repeating-linear-gradient(45deg, #fff, #fff 4px, #ff4757 4px, #ff4757 8px);
-    border-radius: 4px;
-    position: relative;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.flame {
-    position: absolute;
-    top: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 14px;
-    height: 18px;
-    background: #ffa502;
-    border-radius: 50% 50% 20% 20%;
-    box-shadow: 0 0 15px #ffa502, 0 0 30px #ff7f50;
-    animation: flicker 0.1s infinite alternate;
-}
-
-@keyframes flicker {
-    0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
-    100% { transform: translateX(-50%) scale(1.1); opacity: 1; }
-}
-
-.flame.extinguished {
-    display: none;
-}
-
-/* Sliced Cake Effect */
-.cake.cut .tier {
-    clip-path: polygon(0 0, 70% 0, 70% 100%, 0 100%);
 }
 
 .instruction {

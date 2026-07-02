@@ -116,7 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                     
                     createBalloons();
-                    startConfetti();
+                    // Automatically trigger the big confetti burst now that there is no cake to click
+                    fireworkConfetti();
                 }
             }, 1000);
         } else {
@@ -129,35 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const triggerCelebration = () => {
-        if (!isCakeCut) {
-            // Blow out candles if cake exists
-            candles.forEach(flame => flame.classList.add('extinguished'));
-            
-            const cakeEl = document.querySelector('.cake');
-            if(cakeEl) cakeEl.classList.add('cut');
-            
-            const instr = document.querySelector('.instruction');
-            if(instr) {
-                instr.textContent = "Yay! Happy Birthday!";
-                instr.style.color = "#ff7eb3";
-                instr.style.fontWeight = "600";
-            }
-            
-            // Big confetti burst
-            fireworkConfetti();
-            
-            isCakeCut = true;
-        }
-    };
-
-    cakeContainer.addEventListener('click', (e) => {
-        e.stopPropagation();
-        triggerCelebration();
-    });
-    
+    // Allow tapping the screen for extra confetti
     celebrationScreen.addEventListener('click', () => {
-        triggerCelebration();
+        fireworkConfetti();
     });
 
     musicBtn.addEventListener('click', () => {
