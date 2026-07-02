@@ -100,7 +100,7 @@ button:hover {
 
 /* Celebration Screen Backgrounds */
 #celebration-screen {
-    background: url('desktop-bg.jpg') no-repeat center center/cover;
+    background: url('https://static.vecteezy.com/system/resources/thumbnails/057/059/198/small/pink-balloons-golden-confetti-happy-birthday-card-design-elegant-calligraphy-perfect-for-photo.jpg') no-repeat center center/cover;
 }
 .hb-text {
     display: none; /* Hide because background images already have Happy Birthday */
@@ -108,7 +108,7 @@ button:hover {
 
 @media (max-width: 768px) {
     #celebration-screen {
-        background: url('mobile-bg.jpg') no-repeat center center/cover;
+        background: url('https://media1.tenor.com/m/zdZUjuVZ9L4AAAAC/birthday-happy-birthday.gif') no-repeat center center/cover;
     }
     #cake-container {
         display: none !important;
