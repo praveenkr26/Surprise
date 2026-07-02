@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- YouTube API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+    <!-- Screen 1: Input -->
+    <div id="input-screen" class="screen active">
+        <div class="glass-card">
+            <h1>Who is celebrating today?</h1>
+            <input type="text" id="name-input" placeholder="Enter Name..." autocomplete="off">
+            <button id="enter-btn">Celebrate! 🎉</button>
+        </div>
+    </div>
+
+    <!-- Screen 2: Celebration -->
+    <div id="celebration-screen" class="screen">
+        <div class="balloons-container" id="balloons-container"></div>
+        
+        <h1 id="greeting-text" class="glow-text">Happy Birthday,<br><span id="bday-name"></span>!</h1>
+        
+        <div class="cake-container" id="cake-container">
+            <div class="cake">
+                <div class="tier tier-top"></div>
+                <div class="tier tier-middle"></div>
+                <div class="tier tier-bottom"></div>
+                
+                <div class="candles" id="candles">
+                    <div class="candle"><div class="flame"></div></div>
+                    <div class="candle"><div class="flame"></div></div>
+                    <div class="candle"><div class="flame"></div></div>
+                </div>
+            </div>
+            <p class="instruction">Tap the cake to cut it & blow candles!</p>
+        </div>
+
+        <div class="controls">
+            <button id="music-btn" class="control-btn">🔊 Stop Music</button>
+            <button id="shayari-btn" class="control-btn">✨ Show Shayari</button>
+            <button id="reload-btn" class="control-btn">🔄 Enter Name Again</button>
+        </div>
+    </div>
+
+    <!-- Shayari Modal -->
+    <div id="shayari-modal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-btn">&times;</span>
+            <h2>For You, <span id="shayari-name"></span></h2>
+            <p id="shayari-text"></p>
+        </div>
+    </div>
+
+    <!-- Hidden YouTube Player -->
+    <div id="yt-player" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
