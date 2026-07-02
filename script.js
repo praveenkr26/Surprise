@@ -94,38 +94,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 bdayName.appendChild(span);
             });
             inputScreen.classList.remove('active');
-            
-            const countdownScreen = document.getElementById('countdown-screen');
             const celebrationScreen = document.getElementById('celebration-screen');
             const musicBtn = document.getElementById('music-btn');
-            countdownScreen.classList.add('active');
+            celebrationScreen.classList.add('active');
             
-            // Show bouquet animation for 2.5 seconds before transitioning
-            setTimeout(() => {
-                countdownScreen.classList.remove('active');
-                celebrationScreen.classList.add('active');
-                
-                // Start Music in low volume
-                if (player && typeof player.playVideo === 'function') {
-                    player.setVolume(20);
-                    player.playVideo();
-                    isPlaying = true;
-                    musicBtn.innerHTML = '🔊 Stop Music';
-                    document.querySelector('.bunting-container')?.classList.add('music-beat');
-                    document.querySelector('.cute-cake-container')?.classList.add('music-beat');
+            // Start Music in low volume
+            if (player && typeof player.playVideo === 'function') {
+                player.setVolume(20);
+                player.playVideo();
+                isPlaying = true;
+                musicBtn.innerHTML = '🔊 Stop Music';
+                document.querySelector('.bunting-container')?.classList.add('music-beat');
+                document.querySelector('.cute-cake-container')?.classList.add('music-beat');
+            }
+            
+            // Speak Happy Birthday
+            speakText(`Happy birthday ${name}`, () => {
+                // Restore volume
+                if (player && typeof player.setVolume === 'function') {
+                    player.setVolume(100);
                 }
-                
-                // Speak Happy Birthday
-                speakText(`Happy birthday ${name}`, () => {
-                    // Restore volume
-                    if (player && typeof player.setVolume === 'function') {
-                        player.setVolume(100);
-                    }
-                });
-                
-                createBalloons();
-                fireworkConfetti();
-            }, 2500);
+            });
+            
+            createBalloons();
+            fireworkConfetti();
         } else {
             // Shake animation for empty input
             nameInput.style.transform = 'translateX(-10px)';

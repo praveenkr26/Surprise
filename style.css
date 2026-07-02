@@ -298,18 +298,13 @@ button:hover {
     100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-#bouquet-img {
-    width: 350px;
-    max-width: 80vw;
-    height: auto;
-    animation: bouquetBloom 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5));
+#celebration-screen.active {
+    animation: celebrateOpen 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-@keyframes bouquetBloom {
-    0% { transform: scale(0) rotate(-15deg); opacity: 0; }
-    60% { transform: scale(1.1) rotate(5deg); opacity: 1; }
-    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+@keyframes celebrateOpen {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 /* Music Beat Animation */
