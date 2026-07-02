@@ -104,8 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 player.playVideo();
                 isPlaying = true;
                 musicBtn.innerHTML = '🔊 Stop Music';
-                document.querySelector('.bunting-container')?.classList.add('music-beat');
                 document.querySelector('.cute-cake-container')?.classList.add('music-beat');
+                document.querySelectorAll('.balloon').forEach((b, i) => {
+                    b.classList.add(i % 2 === 0 ? 'music-beat' : 'music-beat-alt');
+                });
             }
             
             // Speak Happy Birthday
@@ -162,14 +164,18 @@ document.addEventListener('DOMContentLoaded', () => {
             player.pauseVideo();
             isPlaying = false;
             musicBtn.innerHTML = '🔇 Play Music';
-            document.querySelector('.bunting-container')?.classList.remove('music-beat');
             document.querySelector('.cute-cake-container')?.classList.remove('music-beat');
+            document.querySelectorAll('.balloon').forEach(b => {
+                b.classList.remove('music-beat', 'music-beat-alt');
+            });
         } else {
             player.playVideo();
             isPlaying = true;
             musicBtn.innerHTML = '🔊 Stop Music';
-            document.querySelector('.bunting-container')?.classList.add('music-beat');
             document.querySelector('.cute-cake-container')?.classList.add('music-beat');
+            document.querySelectorAll('.balloon').forEach((b, i) => {
+                b.classList.add(i % 2 === 0 ? 'music-beat' : 'music-beat-alt');
+            });
         }
     });
 
