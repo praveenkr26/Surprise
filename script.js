@@ -86,13 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             let count = 3;
             countdownNumber.textContent = count;
-            speakText(count.toString());
+            const numberWords = { 1: "One", 2: "Two", 3: "Three" };
+            speakText(numberWords[count]);
             
             const countInterval = setInterval(() => {
                 count--;
                 if (count > 0) {
                     countdownNumber.textContent = count;
-                    speakText(count.toString());
+                    speakText(numberWords[count]);
                 } else {
                     clearInterval(countInterval);
                     countdownScreen.classList.remove('active');
