@@ -214,17 +214,19 @@ button:hover {
 
 .anim-letter {
     display: inline-block;
-    animation: colorBounce 2.5s infinite;
+    -webkit-text-stroke: 2px #ffffff;
+    filter: drop-shadow(3px 5px 5px rgba(0,0,0,0.5));
+    animation: colorfulBounce 2.5s infinite;
     transform-origin: bottom center;
 }
 
-@keyframes colorBounce {
-    0% { color: #ff3366; transform: translateY(0) scale(1) rotate(-4deg); }
-    20% { color: #33ccff; transform: translateY(-15px) scale(1.1) rotate(4deg); }
-    40% { color: #ffcc00; transform: translateY(0) scale(1) rotate(-4deg); }
-    60% { color: #00ff66; transform: translateY(-15px) scale(1.1) rotate(4deg); }
-    80% { color: #cc33ff; transform: translateY(0) scale(1) rotate(-4deg); }
-    100% { color: #ff3366; transform: translateY(0) scale(1) rotate(-4deg); }
+@keyframes colorfulBounce {
+    0% { color: #ff1493; transform: translateY(0) scale(1) rotate(-5deg); }
+    20% { color: #00bfff; transform: translateY(-15px) scale(1.1) rotate(5deg); }
+    40% { color: #ffdf00; transform: translateY(0) scale(1) rotate(-5deg); }
+    60% { color: #32cd32; transform: translateY(-15px) scale(1.1) rotate(5deg); }
+    80% { color: #9400d3; transform: translateY(0) scale(1) rotate(-5deg); }
+    100% { color: #ff1493; transform: translateY(0) scale(1) rotate(-5deg); }
 }
 
 @media (max-width: 768px) {
