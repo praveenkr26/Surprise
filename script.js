@@ -96,47 +96,36 @@ document.addEventListener('DOMContentLoaded', () => {
             inputScreen.classList.remove('active');
             
             const countdownScreen = document.getElementById('countdown-screen');
-            const countdownNumber = document.getElementById('countdown-number');
+            const celebrationScreen = document.getElementById('celebration-screen');
+            const musicBtn = document.getElementById('music-btn');
             countdownScreen.classList.add('active');
             
-            let count = 3;
-            countdownNumber.textContent = count;
-            const numberWords = { 1: "One", 2: "Two", 3: "Three" };
-            speakText(numberWords[count]);
-            
-            const countInterval = setInterval(() => {
-                count--;
-                if (count > 0) {
-                    countdownNumber.textContent = count;
-                    speakText(numberWords[count]);
-                } else {
-                    clearInterval(countInterval);
-                    countdownScreen.classList.remove('active');
-                    celebrationScreen.classList.add('active');
-                    
-                    // Start Music in low volume
-                    if (player && typeof player.playVideo === 'function') {
-                        player.setVolume(20);
-                        player.playVideo();
-                        isPlaying = true;
-                        musicBtn.innerHTML = '🔊 Stop Music';
-                        document.querySelector('.bunting-container')?.classList.add('music-beat');
-                        document.querySelector('.cute-cake-container')?.classList.add('music-beat');
-                    }
-                    
-                    // Speak Happy Birthday
-                    speakText(`Happy birthday ${name}`, () => {
-                        // Restore volume
-                        if (player && typeof player.setVolume === 'function') {
-                            player.setVolume(100);
-                        }
-                    });
-                    
-                    createBalloons();
-                    // Automatically trigger the big confetti burst now that there is no cake to click
-                    fireworkConfetti();
+            // Show bouquet animation for 2.5 seconds before transitioning
+            setTimeout(() => {
+                countdownScreen.classList.remove('active');
+                celebrationScreen.classList.add('active');
+                
+                // Start Music in low volume
+                if (player && typeof player.playVideo === 'function') {
+                    player.setVolume(20);
+                    player.playVideo();
+                    isPlaying = true;
+                    musicBtn.innerHTML = '🔊 Stop Music';
+                    document.querySelector('.bunting-container')?.classList.add('music-beat');
+                    document.querySelector('.cute-cake-container')?.classList.add('music-beat');
                 }
-            }, 1000);
+                
+                // Speak Happy Birthday
+                speakText(`Happy birthday ${name}`, () => {
+                    // Restore volume
+                    if (player && typeof player.setVolume === 'function') {
+                        player.setVolume(100);
+                    }
+                });
+                
+                createBalloons();
+                fireworkConfetti();
+            }, 2500);
         } else {
             // Shake animation for empty input
             nameInput.style.transform = 'translateX(-10px)';

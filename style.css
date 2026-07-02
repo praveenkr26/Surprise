@@ -298,6 +298,20 @@ button:hover {
     100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
+#bouquet-img {
+    width: 350px;
+    max-width: 80vw;
+    height: auto;
+    animation: bouquetBloom 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5));
+}
+
+@keyframes bouquetBloom {
+    0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+    60% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
 /* Music Beat Animation */
 .music-beat {
     animation: pulseBeat 0.5s infinite alternate !important; /* Approx 120 BPM */
