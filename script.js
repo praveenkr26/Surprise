@@ -139,6 +139,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const cuteCake = document.getElementById('cute-cake');
+    let isCakeCut = false;
+    
+    if (cuteCake) {
+        cuteCake.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!isCakeCut) {
+                // hide flame
+                const flame = document.querySelector('.cute-flame');
+                if (flame) flame.style.display = 'none';
+                
+                // Cut the cake visually
+                const cakeObj = document.querySelector('.cute-cake');
+                if (cakeObj) cakeObj.classList.add('cut');
+                
+                const instr = document.querySelector('.cute-instruction');
+                if (instr) instr.textContent = "Yay! Cake Cut!";
+                
+                popSound.currentTime = 0;
+                popSound.play().catch(err => console.log(err));
+                
+                fireworkConfetti();
+                
+                isCakeCut = true;
+            }
+        });
+    }
+
     // Allow tapping the screen for extra confetti
     celebrationScreen.addEventListener('click', () => {
         fireworkConfetti();
