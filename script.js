@@ -128,22 +128,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    cakeContainer.addEventListener('click', () => {
+    const triggerCelebration = () => {
         if (!isCakeCut) {
-            // Blow out candles
+            // Blow out candles if cake exists
             candles.forEach(flame => flame.classList.add('extinguished'));
             
-            // Cut cake effect
-            document.querySelector('.cake').classList.add('cut');
-            document.querySelector('.instruction').textContent = "Yay! Happy Birthday!";
-            document.querySelector('.instruction').style.color = "#ff7eb3";
-            document.querySelector('.instruction').style.fontWeight = "600";
+            const cakeEl = document.querySelector('.cake');
+            if(cakeEl) cakeEl.classList.add('cut');
+            
+            const instr = document.querySelector('.instruction');
+            if(instr) {
+                instr.textContent = "Yay! Happy Birthday!";
+                instr.style.color = "#ff7eb3";
+                instr.style.fontWeight = "600";
+            }
             
             // Big confetti burst
             fireworkConfetti();
             
             isCakeCut = true;
         }
+    };
+
+    cakeContainer.addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerCelebration();
+    });
+    
+    celebrationScreen.addEventListener('click', () => {
+        triggerCelebration();
     });
 
     musicBtn.addEventListener('click', () => {
@@ -201,20 +214,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createBalloons() {
         const container = document.getElementById('balloons-container');
-        const colors = ['#ff4757', '#2ed573', '#1e90ff', '#ffa502', '#ff6b81', '#7bed9f'];
+        // Realistic pink shades matching desktop image
+        const colors = ['#ff8da1', '#ff9eb1', '#ff7d95', '#f06292', '#ec407a'];
         
         for (let i = 0; i < 25; i++) {
             const balloon = document.createElement('div');
             balloon.classList.add('balloon');
-            balloon.style.left = `${Math.random() * 95}vw`; // Keep within screen
-            balloon.style.backgroundColor = colors[Math.random() * colors.length | 0];
-            // Randomize size slightly
-            const scale = 0.8 + Math.random() * 0.4;
+            balloon.style.left = `${Math.random() * 95}vw`; 
+            
+            const baseColor = colors[Math.random() * colors.length | 0];
+            // Apply radial gradient for realistic 3D look
+            balloon.style.background = `radial-gradient(circle at 30% 30%, #ffffff 0%, ${baseColor} 40%, #c2185b 100%)`;
+            
+            const scale = 0.8 + Math.random() * 0.5;
             balloon.style.transform = `scale(${scale})`;
-            balloon.style.animationDuration = `${6 + Math.random() * 6}s`;
-            balloon.style.animationDelay = `${Math.random() * 3}s`;
+            balloon.style.animationDuration = `${5 + Math.random() * 5}s`;
+            balloon.style.animationDelay = `${Math.random() * 2}s`;
             
             balloon.addEventListener('click', function(e) {
+                e.stopPropagation(); // prevent cake cut trigger
                 // Play pop sound
                 popSound.currentTime = 0;
                 popSound.play().catch(err => console.log(err));
@@ -225,10 +243,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = (rect.top + rect.height / 2) / window.innerHeight;
                 
                 confetti({
-                    particleCount: 30,
-                    spread: 50,
+                    particleCount: 40,
+                    spread: 60,
                     origin: { x: x, y: y },
-                    colors: [this.style.backgroundColor, '#ffffff'],
+                    colors: [baseColor, '#ffffff', '#ffd700'],
                     zIndex: 100
                 });
                 

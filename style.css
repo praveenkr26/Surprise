@@ -98,6 +98,23 @@ button:hover {
     box-shadow: 0 5px 20px rgba(255, 154, 158, 0.6);
 }
 
+/* Celebration Screen Backgrounds */
+#celebration-screen {
+    background: url('desktop-bg.jpg') no-repeat center center/cover;
+}
+.hb-text {
+    display: none; /* Hide because background images already have Happy Birthday */
+}
+
+@media (max-width: 768px) {
+    #celebration-screen {
+        background: url('mobile-bg.jpg') no-repeat center center/cover;
+    }
+    #cake-container {
+        display: none !important;
+    }
+}
+
 /* Celebration Screen Elements */
 .glow-text {
     font-size: 4rem;
@@ -271,12 +288,12 @@ button:hover {
 .balloon {
     position: absolute;
     bottom: -150px;
-    width: 60px;
-    height: 80px;
+    width: 70px;
+    height: 90px;
     border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
     animation: floatUp 8s linear infinite;
-    opacity: 0.85;
-    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.2);
+    opacity: 0.95;
+    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.3), 0 10px 20px rgba(0,0,0,0.2);
     cursor: pointer;
     pointer-events: auto;
     transition: transform 0.1s;
@@ -286,25 +303,28 @@ button:hover {
     transform: scale(0.9) !important;
 }
 
-.balloon.popped {
-    animation: popEffect 0.2s forwards;
-}
-
-@keyframes popEffect {
-    0% { transform: scale(1); opacity: 0.85; }
-    50% { transform: scale(1.5); opacity: 0.5; }
-    100% { transform: scale(0); opacity: 0; }
-}
-
 .balloon::before {
     content: '';
     position: absolute;
-    bottom: -12px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 2px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid rgba(0,0,0,0.3);
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
     height: 40px;
-    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.6);
 }
 
 @keyframes floatUp {
