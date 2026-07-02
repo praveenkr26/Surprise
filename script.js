@@ -53,6 +53,12 @@ function onPlayerReady(event) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Focus the input field when the page loads
+    const inputField = document.getElementById('name-input');
+    if (inputField) {
+        inputField.focus();
+    }
+    
     const enterBtn = document.getElementById('enter-btn');
     const nameInput = document.getElementById('name-input');
     const inputScreen = document.getElementById('input-screen');

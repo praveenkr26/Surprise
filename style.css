@@ -62,29 +62,29 @@ h1 {
 input {
     width: 80%;
     padding: 15px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border: 2px solid #ff4757;
+    font-size: 1.2rem;
+    font-weight: normal;
+    border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 25px;
     margin-bottom: 20px;
     outline: none;
-    background: rgba(255,255,255,0.95);
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
-    color: #ff4757;
-    font-family: 'Pacifico', cursive;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     transition: all 0.3s;
 }
 input::placeholder {
-    color: #aaa;
+    color: rgba(255, 255, 255, 0.7);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     font-size: 1.2rem;
 }
 input:focus {
-    box-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
-    border-color: #1e90ff;
-    color: #1e90ff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    border-color: #ffffff;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 button {
