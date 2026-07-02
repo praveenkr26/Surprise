@@ -186,25 +186,14 @@ button:hover {
 
 /* Celebration Screen Elements */
 .elegant-name {
-    font-size: 4rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
+    font-size: 5rem;
+    font-family: 'Pacifico', cursive;
     color: #ffffff;
-    /* 3D Paper shadow */
-    text-shadow: 
-        1px 1px 0px #e0e0e0,
-        2px 2px 0px #d0d0d0,
-        3px 3px 0px #c0c0c0,
-        4px 4px 0px #b0b0b0,
-        5px 5px 0px #a0a0a0,
-        6px 6px 15px rgba(0,0,0,0.5),
-        10px 10px 30px rgba(0,0,0,0.4);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Just a soft flat shadow for readability */
     text-align: center;
     position: relative;
     z-index: 10;
     margin-top: 5vh;
-    letter-spacing: 2px;
 }
 
 #bday-name {
@@ -214,19 +203,17 @@ button:hover {
 
 .anim-letter {
     display: inline-block;
-    -webkit-text-stroke: 2px #ffffff;
-    filter: drop-shadow(3px 5px 5px rgba(0,0,0,0.5));
-    animation: colorfulBounce 2.5s infinite;
+    animation: colorfulBounce 3s infinite ease-in-out;
     transform-origin: bottom center;
 }
 
 @keyframes colorfulBounce {
-    0% { color: #ff1493; transform: translateY(0) scale(1) rotate(-5deg); }
-    20% { color: #00bfff; transform: translateY(-15px) scale(1.1) rotate(5deg); }
-    40% { color: #ffdf00; transform: translateY(0) scale(1) rotate(-5deg); }
-    60% { color: #32cd32; transform: translateY(-15px) scale(1.1) rotate(5deg); }
-    80% { color: #9400d3; transform: translateY(0) scale(1) rotate(-5deg); }
-    100% { color: #ff1493; transform: translateY(0) scale(1) rotate(-5deg); }
+    0% { color: #ff6b81; transform: translateY(0); }
+    20% { color: #48dbfb; transform: translateY(-10px); }
+    40% { color: #feca57; transform: translateY(0); }
+    60% { color: #1dd1a1; transform: translateY(-10px); }
+    80% { color: #ff9f43; transform: translateY(0); }
+    100% { color: #ff6b81; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
