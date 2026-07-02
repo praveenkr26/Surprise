@@ -278,59 +278,28 @@ button:hover {
 
 .cute-cake {
     position: relative;
-    width: 200px;
-    height: 180px;
+    width: 250px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
-.cute-tier {
-    position: relative;
-    border-radius: 10px 10px 0 0;
-    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.2);
-}
-
-.cute-bottom {
-    width: 200px;
-    height: 60px;
-    background: linear-gradient(to right, #ff9a9e, #fecfef, #ff9a9e);
-    border-bottom: 8px solid #ff758c;
-}
-.cute-middle {
-    width: 150px;
-    height: 50px;
-    background: linear-gradient(to right, #fccb90, #d57eeb);
-    border-bottom: 6px solid #c2185b;
-}
-.cute-top {
-    width: 100px;
-    height: 40px;
-    background: linear-gradient(to right, #e0c3fc, #8ec5fc);
-    border-bottom: 5px solid #8e24aa;
-}
-
-/* Cream top */
-.cute-tier::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 0;
+.cake-img {
     width: 100%;
-    height: 15px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.4));
 }
 
 .cute-candles {
     position: absolute;
-    top: -30px;
+    top: 5px; /* Adjusting so it sits on the top of the image cake */
     display: flex;
     justify-content: center;
     width: 100%;
+    z-index: 5;
 }
 
 .cute-candle {
@@ -370,10 +339,7 @@ button:hover {
     animation: pulseText 1.5s infinite alternate;
 }
 
-.cute-cake.cut .cute-tier {
-    clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%);
-    transition: clip-path 0.5s ease;
-}
+
 
 /* Balloons */
 .balloons-container {

@@ -152,12 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const flame = document.querySelector('.cute-flame');
                 if (flame) flame.style.display = 'none';
                 
-                // Cut the cake visually
-                const cakeObj = document.querySelector('.cute-cake');
-                if (cakeObj) cakeObj.classList.add('cut');
-                
                 const instr = document.querySelector('.cute-instruction');
-                if (instr) instr.textContent = "Yay! Cake Cut!";
+                if (instr) instr.textContent = "Yay! Happy Birthday!";
                 
                 popSound.currentTime = 0;
                 popSound.play().catch(err => console.log(err));
